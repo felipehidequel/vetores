@@ -27,8 +27,8 @@ int main(void){
     printf("Informe o número de pessoas entrevistadas: ");
     scanf("%d", &num_entrevistados);
     
-    inicializa_vetor_char(sexo);
-    inicializa_vetor_char(opiniao);
+    inicializa_vetor_char(sexo, num_entrevistados);
+    inicializa_vetor_char(opiniao, num_entrevistados);
 
     for(int pessoa = 0; pessoa < num_entrevistados; pessoa++){
         printf("Informe o seu sexo (F/M): ");
@@ -37,17 +37,30 @@ int main(void){
         printf("Você gostou do produto? (S/N)");
         scanf("%c", &opiniao[pessoa]);
 
-        if sexo[pessoa] == 'F'{
-            
+        if(sexo[pessoa] == 'F'){
+            qtd_mulheres++;
+            if (opiniao[pessoa] == 'S'){
+                mulheres_gostaram++;
+            }
         }
     }    
-
+    
+    return 0;
 }
 
 void inicializa_vetor_char(char * vetor, int tamanho){
     vetor = (char *) malloc (tamanho * sizeof(char *));
-    if vetor == Null{
-        print("memory allocation error!")
-        return 1;
+    if( vetor == NULL){
+        printf("memory allocation error!");
+        exit(1);
     }
 }
+
+// void contador_mulheres(char * sexo, char * opiniao, int * qtd_mulheres, int * mulheres_gostaram){
+//     if sexo == 'F'{
+//             qtd_mulheres++;
+//             if opiniao == 'S'{
+//                 mulheres_gostaram++;
+//             }
+//         }
+// }
